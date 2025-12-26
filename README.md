@@ -83,9 +83,9 @@ As you explore your universe and interact with the characters, anything you writ
     <true/>
 
     <key>StandardErrorPath</key>
-    <string>/Users/lrusso/server/error.log</string>
+    <string>/dev/null</string>
     <key>StandardOutPath</key>
-    <string>/Users/lrusso/server/output.log</string>
+    <string>/dev/null</string>
 </dict>
 </plist>
 ```
