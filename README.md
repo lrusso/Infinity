@@ -23,6 +23,11 @@ As you explore your universe and interact with the characters, anything you writ
 - Run `npm run start`
 - Browse to `http://localhost`
 
+## Forcing the light and dark modes
+
+- Browse to `http://localhost/?lightmode`
+- Browse to `http://localhost/?darkmode`
+
 ## How to run the server using a different port
 
 - Run `npm run start 8080`
@@ -41,11 +46,6 @@ As you explore your universe and interact with the characters, anything you writ
 - 4K context: replace `"auto"` with `4096`.
 - 8K context: replace `"auto"` with `8192`.
 - 16K context: replace `"auto"` with `16384`.
-
-## Forcing the light and dark modes
-
-- Browse to `http://localhost/?lightmode`
-- Browse to `http://localhost/?darkmode`
 
 ## Launching the server on startup using Forever (MacOS)
 
