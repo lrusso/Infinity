@@ -51,6 +51,7 @@ As you explore your universe and interact with the characters, anything you writ
 
 - Run `nano ~/Library/LaunchAgents/com.lrusso.infinity.plist`
 - Assuming that you have the server folder path in `/Users/lrusso/infinity`, you must write:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -88,6 +89,7 @@ As you explore your universe and interact with the characters, anything you writ
 </dict>
 </plist>
 ```
+
 - Run `chmod 644 ~/Library/LaunchAgents/com.lrusso.infinity.plist`
 - Run `launchctl load ~/Library/LaunchAgents/com.lrusso.infinity.plist`
 
