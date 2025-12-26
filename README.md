@@ -47,6 +47,50 @@ As you explore your universe and interact with the characters, anything you writ
 - Browse to `http://localhost/?lightmode`
 - Browse to `http://localhost/?darkmode`
 
+## Launching the server on startup (MacOS)
+
+- Run `nano ~/Library/LaunchAgents/com.lrusso.infinity.plist`
+- Assuming that you have the server folder path in `/Users/lrusso/infinity`, you must write:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.lrusso.infinity</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/npm</string>
+        <string>run</string>
+        <string>forever</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/lrusso/server</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/lrusso/server/error.log</string>
+    <key>StandardOutPath</key>
+    <string>/Users/lrusso/server/output.log</string>
+</dict>
+</plist>
+```
+- Run `chmod 644 ~/Library/LaunchAgents/com.lrusso.infinity.plist`
+- Run `launchctl load ~/Library/LaunchAgents/com.lrusso.infinity.plist`
+
 ## Banner prompt for an AI image generator
 
 `Generate a Ghibli-style 2x2 collage, with no space, borders or separators between the images. Each image must include one person from behind (so the face is not visible, it can be a man or a woman) looking at an adventure scene.`
