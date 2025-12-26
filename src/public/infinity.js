@@ -669,6 +669,38 @@ window.addEventListener("load", async () => {
     })
     inputContainer.style.display = "flex"
 
+    document.addEventListener("keydown", function (event) {
+      const KEY_CTRL = event.ctrlKey || event.metaKey
+      const KEY_1 = event.code === "Digit1"
+      const KEY_2 = event.code === "Digit2"
+
+      if (KEY_CTRL && KEY_1) {
+        event.preventDefault()
+        try {
+          document.getElementsByTagName("button")[0].click()
+          setTimeout(() => {
+            inputTextbox.blur()
+            inputTextbox.focus()
+          }, 25)
+        } catch (err) {
+          //
+        }
+      }
+
+      if (KEY_CTRL && KEY_2) {
+        event.preventDefault()
+        try {
+          document.getElementsByTagName("button")[1].click()
+          setTimeout(() => {
+            inputTextbox.blur()
+            inputTextbox.focus()
+          }, 25)
+        } catch (err) {
+          //
+        }
+      }
+    })
+
     const currentURL = new URL(window.location.href).searchParams
     const requiredLightMode = currentURL.has("lightmode")
     const requiredDarkMode = currentURL.has("darkmode")
