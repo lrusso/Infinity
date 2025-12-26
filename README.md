@@ -47,7 +47,7 @@ As you explore your universe and interact with the characters, anything you writ
 - Browse to `http://localhost/?lightmode`
 - Browse to `http://localhost/?darkmode`
 
-## Launching the server on startup (MacOS)
+## Launching the server on startup using Forever (MacOS)
 
 - Run `nano ~/Library/LaunchAgents/com.lrusso.infinity.plist`
 - Assuming that you have the server folder path in `/Users/lrusso/infinity`, you must write:
