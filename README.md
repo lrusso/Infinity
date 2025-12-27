@@ -54,7 +54,7 @@ As you explore your universe and interact with the characters, anything you writ
 | Next reply |  Command + 1   |     Ctrl + 1     |    Ctrl + 1     |
 | Regenerate |  Command + 2   |     Ctrl + 2     |    Ctrl + 2     |
 
-## Launching the server on startup using Forever (MacOS)
+## Launching the server on startup (MacOS)
 
 - Run `nano ~/Library/LaunchAgents/com.lrusso.infinity.plist`
 - Assuming that you have the server folder path in `/Users/lrusso/infinity`, you must write:
