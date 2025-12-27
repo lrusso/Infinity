@@ -23,11 +23,6 @@ As you explore your universe and interact with the characters, anything you writ
 - Run `npm run start`
 - Browse to `http://localhost`
 
-## Forcing the light and dark modes
-
-- Browse to `http://localhost/?lightmode`
-- Browse to `http://localhost/?darkmode`
-
 ## How to run the server using a different port
 
 - Run `npm run start 8080`
@@ -40,6 +35,11 @@ As you explore your universe and interact with the characters, anything you writ
 - Browse to `http://localhost`
 - To stop the server, run `npm run stop`
 
+## How to force the light and dark modes
+
+- Browse to `http://localhost/?lightmode`
+- Browse to `http://localhost/?darkmode`
+
 ## How to set a custom context size
 
 - Edit the [server.js](https://github.com/lrusso/Infinity/blob/main/src/server.js#L49) file.
@@ -47,14 +47,7 @@ As you explore your universe and interact with the characters, anything you writ
 - 8K context: replace `"auto"` with `8192`.
 - 16K context: replace `"auto"` with `16384`.
 
-## Special keys:
-
-| Action     | macOS Shortcut | Windows Shortcut | Safari Shortcut |
-| :--------- | :------------: | :--------------: | :-------------: |
-| Next reply |  Command + 1   |     Ctrl + 1     |    Ctrl + 1     |
-| Regenerate |  Command + 2   |     Ctrl + 2     |    Ctrl + 2     |
-
-## Launching the server on startup (MacOS)
+## How to launch the server on startup (MacOS)
 
 - Run `nano ~/Library/LaunchAgents/com.lrusso.infinity.plist`
 - Assuming that you have the server folder path in `/Users/lrusso/infinity`, you must write:
@@ -98,6 +91,13 @@ As you explore your universe and interact with the characters, anything you writ
 
 - Run `chmod 644 ~/Library/LaunchAgents/com.lrusso.infinity.plist`
 - Run `launchctl load ~/Library/LaunchAgents/com.lrusso.infinity.plist`
+
+## Special keys:
+
+| Action     | macOS Shortcut | Windows Shortcut | Safari Shortcut |
+| :--------- | :------------: | :--------------: | :-------------: |
+| Next reply |  Command + 1   |     Ctrl + 1     |    Ctrl + 1     |
+| Regenerate |  Command + 2   |     Ctrl + 2     |    Ctrl + 2     |
 
 ## Banner prompt for an AI image generator
 
