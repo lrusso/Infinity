@@ -50,7 +50,7 @@ As you explore your universe and interact with the characters, anything you writ
 ## How to launch the server on startup (MacOS)
 
 - Run `nano ~/Library/LaunchAgents/com.lrusso.infinity.plist`
-- Assuming that you have the server folder path in `/Users/lrusso/infinity`, you must write:
+- Assuming that you have the server folder path in `/Users/lrusso/Server`, you must write:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
