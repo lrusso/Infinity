@@ -69,13 +69,12 @@ As you explore your universe and interact with the characters, anything you writ
 
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/local/bin/npm</string>
-        <string>run</string>
-        <string>forever</string>
+        <string>/usr/local/bin/node</string>
+        <string>/Users/lrusso/Server/src/server.js</string>
     </array>
 
     <key>WorkingDirectory</key>
-    <string>/Users/lrusso/server</string>
+    <string>/Users/lrusso/Server</string>
 
     <key>EnvironmentVariables</key>
     <dict>
