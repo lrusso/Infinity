@@ -129,9 +129,6 @@ let customPrefix = ""
 let renderCompleteWords = false
 let rendering = false
 let chatHistory = []
-let lastContent = ""
-let lastPrompt = ""
-let lastHidePrompt = false
 let fetchController = null
 let isFocusEventHandled = false
 let replies = []
@@ -168,9 +165,6 @@ const ask = async (prompt, hidePrompt) => {
 
   rendering = true
 
-  lastContent = content.innerHTML
-  lastPrompt = prompt
-  lastHidePrompt = hidePrompt
   chatHistory.push({ type: "user", text: customPrefix + prompt })
 
   if (!hidePrompt) {
