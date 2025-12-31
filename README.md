@@ -42,7 +42,7 @@ As you explore your universe and interact with the characters, anything you writ
 
 ## How to set a custom context size
 
-- Edit the [server.js](https://github.com/lrusso/Infinity/blob/main/src/server.js#L49) file.
+- Edit the [server.js](https://github.com/lrusso/Infinity/blob/main/src/server.js#L58) file.
 - 4K context: replace `"auto"` with `4096`.
 - 8K context: replace `"auto"` with `8192`.
 - 16K context: replace `"auto"` with `16384`.
