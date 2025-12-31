@@ -131,6 +131,7 @@ let rendering = false
 let chatHistory = []
 let replies = []
 let selectedReply = 0
+let isSpeaking = false
 let fetchController = null
 let isFocusEventHandled = false
 
@@ -596,7 +597,11 @@ const sendPrompt = (prompt) => {
 
 const speakText = (text) => {
   try {
-    stopSpeak()
+    if (isSpeaking) {
+      stopSpeak()
+      isSpeaking = false
+      return
+    }
 
     // clean text for tts
     const cleanText = text
@@ -611,13 +616,20 @@ const speakText = (text) => {
       return
     }
 
-    meSpeak.speak(cleanText, {
-      amplitude: 100,
-      pitch: 50,
-      speed: 150,
-      wordgap: 0,
-      variant: "f1",
-    })
+    isSpeaking = true
+    meSpeak.speak(
+      cleanText,
+      {
+        amplitude: 100,
+        pitch: 50,
+        speed: 150,
+        wordgap: 0,
+        variant: "f1",
+      },
+      () => {
+        isSpeaking = false
+      }
+    )
   } catch (err) {
     //
   }
