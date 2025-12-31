@@ -4,6 +4,7 @@ const APP_STRINGS = {
     thinking: "Thinking...",
     writing: "Writing...",
     placeholder: "Write a message",
+    tts: "en",
     system_prompt: {
       description: `I will be John and the AI will behave like the following characters: {characters}. The following places are available: {places}.`,
       characters: [
@@ -48,6 +49,7 @@ const APP_STRINGS = {
     thinking: "Pensando...",
     writing: "Escribiendo...",
     placeholder: "Escribe un mensaje",
+    tts: "es",
     system_prompt: {
       description: `Yo ser\u00E9 Juan y la IA se comportar\u00E1 como los siguientes personajes: {characters}. Los siguientes lugares est\u00E1n disponibles: {places}.`,
       characters: [
