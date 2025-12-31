@@ -6,7 +6,7 @@ Infinity is your journey into a universe born of AI, where you can explore, inte
 
 ## How to create your universe
 
-The universe is defined in the `strings.js` file at [line 7](https://github.com/lrusso/Infinity/blob/main/src/public/strings.js#L7-L43) and the welcome text at [line 45](https://github.com/lrusso/Infinity/blob/main/src/public/strings.js#L44).
+The universe is defined in the `strings.js` file at [line 7](https://github.com/lrusso/Infinity/blob/main/src/public/strings.js#L8-L44) and the welcome text at [line 45](https://github.com/lrusso/Infinity/blob/main/src/public/strings.js#L45).
 
 ## God mode in your universe
 
