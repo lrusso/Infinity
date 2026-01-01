@@ -245,15 +245,20 @@ const ask = async (prompt, hidePrompt) => {
                 reply = reply + newText
 
                 // VALIDATE BAD RESPONSES DURING THE STREAMING
-                if (
-                  reply.indexOf(" ") !== -1 &&
-                  !/^[A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]+:/.test(reply)
-                ) {
-                  // ABORT STREAM AND RETRY
-                  fetchController.abort()
-                  reply = ""
-                  resolve()
-                  return
+                if (reply.indexOf(" ") !== -1) {
+                  const noName =
+                    !/^[A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]+:/.test(reply)
+                  const invalidsWordsFound = t("banned_words").some((word) =>
+                    new RegExp(`\\b${word}\\b`, "i").test(reply)
+                  )
+
+                  if (noName || invalidsWordsFound) {
+                    // ABORT STREAM AND RETRY
+                    fetchController.abort()
+                    reply = ""
+                    resolve()
+                    return
+                  }
                 }
 
                 let resultText = reply
