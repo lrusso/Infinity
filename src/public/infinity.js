@@ -244,6 +244,18 @@ const ask = async (prompt, hidePrompt) => {
                 const newText = decoder.decode(value)
                 reply = reply + newText
 
+                // VALIDATE BAD RESPONSES DURING THE STREAMING
+                if (
+                  reply.indexOf(" ") !== -1 &&
+                  !/^[A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]+:/.test(reply)
+                ) {
+                  // ABORT STREAM AND RETRY
+                  fetchController.abort()
+                  reply = ""
+                  resolve()
+                  return
+                }
+
                 let resultText = reply
                   .replace(/\</g, "&#60;")
                   .trim()
@@ -291,6 +303,12 @@ const ask = async (prompt, hidePrompt) => {
       })
 
       await readStream
+
+      // VALIDATE THAT THE REPLY DOESN'T CONTAIN A DESCRIPTION
+      if (reply.indexOf("(") === -1) {
+        // ABORT STREAM AND RETRY
+        reply = ""
+      }
     }
   } catch (err) {
     console.log(err)
