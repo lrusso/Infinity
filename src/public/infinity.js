@@ -859,7 +859,9 @@ window.addEventListener("load", async () => {
 
     chatHistory.push({ type: "system", text: newUniverse })
 
-    appendMessage("reply", t("system_welcome"))
+    appendMessage("reply", t("system_welcome_text"))
+    appendMessage("reply", '<div class="pointer"></div>')
+    ask(t("system_welcome_prompt"), true)
 
     document.body.style.display = "block"
 
