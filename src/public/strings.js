@@ -44,7 +44,7 @@ const APP_STRINGS = {
     },
     system_welcome_text: `Your name is John you are at your home. Your brother Richard is watching TV in the living room, your dog Willy is in the garden and your friend Stephen is at the office working. Everything you write in parentheses will happen. For example: (I go to the office) or (Willy enters the house and starts barking).`,
     system_welcome_prompt: `(I am John, I go to the house) Hello Richard (Richard greets me from the living room, mentioning my name. Only Richard responds, and the response must begin with "Richard:".)`,
-    banned_words: [],
+    banned_words: ["John:"],
   },
   es: {
     title: "Infinity",
@@ -91,7 +91,7 @@ const APP_STRINGS = {
     },
     system_welcome_text: `Tu nombre es Juan y te encuentras en tu casa. Tu hermano Ricardo est\u00E1 viendo la televisi\u00F3n en la sala, tu perro Willy juega en el jard\u00EDn y tu amigo Esteban est\u00E1 en la oficina trabajando. Todo lo que escribas entre par\u00E9ntesis suceder\u00E1. Por ejemplo: (Voy a la oficina) o (Willy entra a la casa y comienza a ladrar).`,
     system_welcome_prompt: `(Yo soy Juan, voy a la casa) Hola Ricardo (Ricardo me saluda desde la sala, mencionando mi nombre. S\u00F3lo responde Ricardo y la respuesta debe comenzar con "Ricardo:".)`,
-    banned_words: [],
+    banned_words: ["Juan:"],
   },
 }
 
