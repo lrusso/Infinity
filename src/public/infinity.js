@@ -215,7 +215,6 @@ const ask = async (prompt, hidePrompt) => {
   scrollToBottom()
 
   let reply = ""
-  let isValidated = false
 
   try {
     fetchController = new AbortController()
@@ -225,6 +224,8 @@ const ask = async (prompt, hidePrompt) => {
       body: JSON.stringify(chatHistory),
       signal: fetchController.signal,
     })
+
+    document.title = t("title") + " - " + t("writing")
 
     if (responseAPI.ok) {
       const reader = responseAPI.body.getReader()
@@ -244,7 +245,7 @@ const ask = async (prompt, hidePrompt) => {
                 reply = reply + newText
 
                 // VALIDATE BAD RESPONSES DURING THE STREAMING
-                if (!isValidated && reply.indexOf(" ") !== -1) {
+                if (reply.indexOf(" ") !== -1) {
                   const noName =
                     !/^[A-Za-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u00FF]+:/.test(reply)
                   const invalidsWordsFound = t("banned_words").some((word) =>
@@ -258,47 +259,39 @@ const ask = async (prompt, hidePrompt) => {
                     resolve()
                     return
                   }
-
-                  // RESPONSE PASSED VALIDATION, MARK AS VALIDATED
-                  isValidated = true
-
-                  document.title = t("title") + " - " + t("writing")
                 }
 
-                // ONLY RENDER IF THE RESPONSE HAS BEEN VALIDATED
-                if (isValidated) {
-                  let resultText = reply
-                    .replace(/\</g, "&#60;")
-                    .trim()
-                    .replace(/^\),/, "")
-                    .trim()
+                let resultText = reply
+                  .replace(/\</g, "&#60;")
+                  .trim()
+                  .replace(/^\),/, "")
+                  .trim()
 
-                  if (renderFullWords) {
-                    const BREAKING_CHARS = [
-                      " ",
-                      ".",
-                      ",",
-                      ":",
-                      ";",
-                      "?",
-                      "!",
-                      ")",
-                      "]",
-                    ]
+                if (renderFullWords) {
+                  const BREAKING_CHARS = [
+                    " ",
+                    ".",
+                    ",",
+                    ":",
+                    ";",
+                    "?",
+                    "!",
+                    ")",
+                    "]",
+                  ]
 
-                    const breakingPoint = Math.max(
-                      ...BREAKING_CHARS.map((char) => resultText.lastIndexOf(char))
-                    )
+                  const breakingPoint = Math.max(
+                    ...BREAKING_CHARS.map((char) => resultText.lastIndexOf(char))
+                  )
 
-                    if (breakingPoint !== resultText.length - 1) {
-                      resultText = resultText.substring(0, breakingPoint + 1)
-                    }
+                  if (breakingPoint !== resultText.length - 1) {
+                    resultText = resultText.substring(0, breakingPoint + 1)
                   }
-
-                  promptResult.innerHTML =
-                    markdownToHTML(resultText) + '<div class="pointer"></div>'
-                  scrollToBottom()
                 }
+
+                promptResult.innerHTML =
+                  markdownToHTML(resultText) + '<div class="pointer"></div>'
+                scrollToBottom()
 
                 read()
               })
