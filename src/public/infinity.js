@@ -226,8 +226,6 @@ const ask = async (prompt, hidePrompt) => {
       signal: fetchController.signal,
     })
 
-    document.title = t("title") + " - " + t("writing")
-
     if (responseAPI.ok) {
       const reader = responseAPI.body.getReader()
       const decoder = new TextDecoder()
@@ -261,11 +259,13 @@ const ask = async (prompt, hidePrompt) => {
                     return
                   }
 
-                  // Response passed validation, mark as validated
+                  // RESPONSE PASSED VALIDATION, MARK AS VALIDATED
                   isValidated = true
+
+                  document.title = t("title") + " - " + t("writing")
                 }
 
-                // Only render if the response has been validated
+                // ONLY RENDER IF THE RESPONSE HAS BEEN VALIDATED
                 if (isValidated) {
                   let resultText = reply
                     .replace(/\</g, "&#60;")
