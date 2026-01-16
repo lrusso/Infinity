@@ -171,7 +171,7 @@ const ask = async (prompt, hidePrompt) => {
   customPrefix = customPrefix.trim()
   customPrefix = customPrefix ? customPrefix + " " : ""
 
-  if (isMobileDevice()) {
+  if (isMobileDevice() && !hidePrompt) {
     inputTextbox.blur()
   }
 
